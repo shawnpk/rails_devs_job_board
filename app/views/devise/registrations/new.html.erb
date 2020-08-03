@@ -1,7 +1,5 @@
 <% content_for :devise_form do %>
-
   <h2 class="pt-4 mb-8 text-4xl font-bold heading">Sign up</h2>
-
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
 
@@ -30,16 +28,25 @@
       <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "input" %>
     </div>
 
+    <h3 class="text-lg font-bold mb-3">Roles</h3>
+    <div class="input-group">
+      <%= f.check_box :developer %>
+      <%= f.label :developer, 'Use rails devs as a developer?' %>
+    </div>
+
+    <div class="input-group">
+      <%= f.check_box :employer %>
+      <%= f.label :employer, 'Use rails devs as an employer?' %>
+    </div>
+
     <div class="input-group">
       <%= f.submit "Sign up", class: "btn btn-default" %>
     </div>
 
     <hr class="mt-6 border" />
-
   <% end %>
 
   <%= render "devise/shared/links" %>
-
 <% end %>
 
 <%= render "devise/shared/form_wrap" %>
