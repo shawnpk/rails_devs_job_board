@@ -25,6 +25,7 @@
 #
 class Job < ApplicationRecord
   belongs_to :user
+  has_one_attached :company_logo
   has_rich_text :description
   has_rich_text :company_description
 end
