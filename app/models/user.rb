@@ -11,6 +11,7 @@
 #  encrypted_password     :string           default(""), not null
 #  first_name             :string
 #  last_name              :string
+#  moderator              :boolean
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string
@@ -25,6 +26,8 @@
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #
 class User < ApplicationRecord
+  include SimpleDiscussion::ForumUser
+
   has_person_name
 
   # Include default devise modules. Others available are:
@@ -32,4 +35,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :confirmable
+
+  def name
+    "#{first_name} #{last_name}"
+  end
 end
