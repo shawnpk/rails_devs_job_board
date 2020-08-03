@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_03_181037) do
+ActiveRecord::Schema.define(version: 2020_08_03_194746) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,6 +63,21 @@ ActiveRecord::Schema.define(version: 2020_08_03_181037) do
     t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
   end
 
+  create_table "jobs", force: :cascade do |t|
+    t.string "title"
+    t.string "link_to_apply"
+    t.string "company_name"
+    t.string "company_website"
+    t.string "role_type"
+    t.string "compensation_range"
+    t.boolean "remote", default: false
+    t.string "years_of_experience"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_jobs_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -90,4 +105,5 @@ ActiveRecord::Schema.define(version: 2020_08_03_181037) do
   add_foreign_key "forum_subscriptions", "users"
   add_foreign_key "forum_threads", "forum_categories"
   add_foreign_key "forum_threads", "users"
+  add_foreign_key "jobs", "users"
 end
