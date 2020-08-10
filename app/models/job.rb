@@ -6,10 +6,19 @@
 #  company_name        :string
 #  company_website     :string
 #  compensation_range  :string
+#  compensation_type   :string
+#  estimated_hours     :string
+#  featured            :boolean          default(FALSE)
+#  featured_until      :datetime
+#  headquarters        :string
 #  link_to_apply       :string
+#  price               :integer
+#  published_at        :datetime
 #  remote              :boolean          default(FALSE)
 #  role_type           :string
+#  status              :string           default("pending")
 #  title               :string
+#  upsell_type         :string
 #  years_of_experience :string
 #  created_at          :datetime         not null
 #  updated_at          :datetime         not null
