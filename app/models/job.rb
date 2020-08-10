@@ -16,6 +16,7 @@
 #  published_at        :datetime
 #  remote              :boolean          default(FALSE)
 #  role_type           :string
+#  slug                :string
 #  status              :string           default("pending")
 #  title               :string
 #  upsell_type         :string
@@ -26,6 +27,7 @@
 #
 # Indexes
 #
+#  index_jobs_on_slug     (slug) UNIQUE
 #  index_jobs_on_user_id  (user_id)
 #
 # Foreign Keys
@@ -33,6 +35,9 @@
 #  fk_rails_...  (user_id => users.id)
 #
 class Job < ApplicationRecord
+  extend FriendlyId
+  friendly_id :title, use: :slugged
+  
   belongs_to :user
   has_one_attached :company_logo
   has_rich_text :description
