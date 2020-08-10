@@ -37,4 +37,10 @@ class Job < ApplicationRecord
   has_one_attached :company_logo
   has_rich_text :description
   has_rich_text :company_description
+
+  JOB_STATUSES = {
+    pending: 'pending',
+    published: 'published',
+    archived: 'archived'
+  }.freeze
 end
