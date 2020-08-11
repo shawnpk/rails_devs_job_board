@@ -31,8 +31,8 @@
 #
 class User < ApplicationRecord
   include SimpleDiscussion::ForumUser
-  extend FriendlyId
-  friendly_id :name, use: :slugged
+  # extend FriendlyId
+  # friendly_id :name, use: :slugged
 
   has_many :jobs, dependent: :destroy
 
@@ -48,11 +48,11 @@ class User < ApplicationRecord
     "#{first_name} #{last_name}"
   end
 
-  def should_generate_new_friendly_id?
-    unless slug?
-      name_changed?
-    else
-      false
-    end
-  end
+  # def should_generate_new_friendly_id?
+  #   unless slug?
+  #     name_changed?
+  #   else
+  #     false
+  #   end
+  # end
 end
