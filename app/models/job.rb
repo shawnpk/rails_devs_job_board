@@ -15,7 +15,6 @@
 #  price               :integer
 #  published_at        :datetime
 #  remote              :boolean          default(FALSE)
-#  role_type           :string
 #  slug                :string
 #  status              :string           default("pending")
 #  title               :string
@@ -70,7 +69,7 @@ class Job < ApplicationRecord
     '240,000 - 250,000',
     '250,000+'
   ].freeze
-  
+
   HOURLY_RANGES = [
     'less than 10',
     '10-30',
@@ -85,6 +84,19 @@ class Job < ApplicationRecord
     archived: 'archived'
   }.freeze
   
+  YEARS_OF_EXPERIENCE = [
+    '1',
+    '2',
+    '3',
+    '4',
+    '5',
+    '6',
+    '7',
+    '8',
+    '9',
+    '10+',
+  ].freeze
+
   def pending?
     self.status = Job::JOB_STATUSES[:pending]
   end

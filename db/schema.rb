@@ -101,7 +101,6 @@ ActiveRecord::Schema.define(version: 2020_08_10_213607) do
     t.string "headquarters"
     t.string "upsell_type"
     t.string "company_website"
-    t.string "role_type"
     t.string "compensation_range"
     t.string "compensation_type"
     t.string "estimated_hours"

@@ -7,7 +7,6 @@ class CreateJobs < ActiveRecord::Migration[6.0]
       t.string :headquarters
       t.string :upsell_type
       t.string :company_website
-      t.string :role_type
       t.string :compensation_range
       t.string :compensation_type
       t.string :estimated_hours

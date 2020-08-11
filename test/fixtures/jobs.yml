@@ -15,7 +15,6 @@
 #  price               :integer
 #  published_at        :datetime
 #  remote              :boolean          default(FALSE)
-#  role_type           :string
 #  slug                :string
 #  status              :string           default("pending")
 #  title               :string
