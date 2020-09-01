@@ -72,6 +72,7 @@ class JobsController < ApplicationController
   def job_params
     params.require(:job).permit(
       :company_description,
+      :company_logo,
       :company_name, 
       :company_website, 
       :compensation_range, 
