@@ -35,7 +35,7 @@
 #
 class Job < ApplicationRecord
   extend FriendlyId
-  friendly_id :slug_candidates, use: []:slugged, :finders]
+  friendly_id :slug_candidates, use: [:slugged, :finders]
   
   belongs_to :user
   has_one_attached :company_logo
