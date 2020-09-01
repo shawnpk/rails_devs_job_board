@@ -1,1 +1,19 @@
-<%= render @jobs %>
+<% content_for :hero do %>
+  <div class="bg-black text-white py-24 mb-16">
+    <div class="container mx-auto flex justify-center flex-wrap text-center">
+      <h1 class='text-4xl lg:text-6xl font-black leading-tight'>Find a Ruby/Rails developer</h1>
+      <p class='w-full text-lg text-red-100'>The internet's number one resource for Ruby/Rails developers</p>
+
+      <div class="flex items-center mt-6 mb-3">
+        <%= link_to 'Find a developer', '#', class: 'btn bg-teal-600 hover:bg-teal-700 py-3 px-6 lg:mr-2' %>
+        <%= link_to 'Find a job', jobs_path(anchor: 'jobs-index'), class: 'py-3 px-6 btn bg-red-600 lg:ml-2 hover:bg-red-700' %>
+      </div>
+
+      <p class='w-full'>or find developer friends in the <%= link_to 'community', '#', class: 'underline' %></p>
+    </div>
+  </div>
+<% end %>
+
+<div id='jobs-index' class="container px-0 mx-auto lg:px-48 mb-24">
+  <%= render @jobs %>
+</div>
