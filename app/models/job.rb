@@ -35,7 +35,7 @@
 #
 class Job < ApplicationRecord
   extend FriendlyId
-  friendly_id :title, use: :slugged
+  friendly_id :slug_candidates, use: []:slugged, :finders]
   
   belongs_to :user
   has_one_attached :company_logo
@@ -115,5 +115,12 @@ class Job < ApplicationRecord
     else
       false
     end
+  end
+
+  def slug_candidates
+    [
+      :title,
+      [:title, :company_name]
+    ]
   end
 end
