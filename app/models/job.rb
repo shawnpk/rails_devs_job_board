@@ -3,6 +3,7 @@
 # Table name: jobs
 #
 #  id                  :bigint           not null, primary key
+#  user_id             :bigint           not null
 #  company_name        :string
 #  company_website     :string
 #  compensation_range  :string
@@ -22,7 +23,6 @@
 #  years_of_experience :string
 #  created_at          :datetime         not null
 #  updated_at          :datetime         not null
-#  user_id             :bigint           not null
 #
 # Indexes
 #
