@@ -21,22 +21,22 @@
       <% if job.compensation_type.downcase == 'contract'  %>
         <%= job.estimated_hours %> hours
       <% else %>
-        <%= number_to_currency job.compensation_range %> <span class='px-px text-gray-600'>&bull;</span> <%= pluralize(job.years_of_experience, 'year') %> of experience</p>
-    <% end %>
-  </p>
+        <%= number_to_currency job.compensation_range %> <span class='px-px text-gray-600'>&bull;</span> <%= pluralize(job.years_of_experience, 'year') %> of experience
+      <% end %>
+    </p>
 
-  <p class='text-sm leading-tight text-gray-700'>
-    <% if job.remote? %>
-      <em>Remote, </em>
-    <% end %>
-    <%= job.headquarters %>
-  </p>
-<% end %>
+    <p class='text-sm leading-tight text-gray-700'>
+      <% if job.remote? %>
+        <em>Remote, </em>
+      <% end %>
+      <%= job.headquarters %>
+    </p>
+  <% end %>
 
-<% if admin? %>
-  <div class="absolute top-0 right-0 mr-4 mt-4">
-    <%= link_to 'Edit', edit_job_path(job), class: 'underline mr-1' %>
-    <%= link_to 'Delete', job, method: :delete, data: { confirm: 'Are you sure?' }, class: 'underline' %>
-  </div>
-<% end %>
+  <% if admin? %>
+    <div class="absolute top-0 right-0 mr-4 mt-4">
+      <%= link_to 'Edit', edit_job_path(job), class: 'underline mr-1' %>
+      <%= link_to 'Delete', job, method: :delete, data: { confirm: 'Are you sure?' }, class: 'underline' %>
+    </div>
+  <% end %>
 </div>
